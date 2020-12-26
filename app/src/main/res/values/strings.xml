@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Digis Application</string>
+    <string name="rsrp">RSRP</string>
+    <string name="rsrq">RSRQ</string>
+    <string name="snr">SNR</string>
+    <string name="no_internet_connection">no_internet_connection</string>
+</resources>

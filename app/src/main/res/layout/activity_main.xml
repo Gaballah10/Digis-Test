@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.example.digisapplication.viewmodel.MainActivityViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".Activity.MainActivity">
+
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/chart1"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/chart2"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    app:layout_constraintTop_toBottomOf="@id/chart1" />
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/chart3"
+                    android:layout_width="match_parent"
+                    android:layout_height="170dp"
+                    app:layout_constraintTop_toBottomOf="@id/chart2" />
+
+                <LinearLayout
+                    android:id="@+id/ll_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/chart3">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/black"
+                        android:gravity="center"
+                        android:text="@string/rsrp"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/black"
+                        android:gravity="center"
+                        android:text="@string/rsrq"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@android:color/black"
+                        android:gravity="center"
+                        android:text="@string/snr"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_bars"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingBottom="10dp"
+                    android:weightSum="3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ll_text">
+
+
+                    <leo.me.la.labeledprogressbarlib.LabeledProgressBar
+                        android:id="@+id/pb_RSRP"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:indeterminate="false"
+                        app:labelBackgroundColor="#f9f37e"
+                        app:labelText="giangp"
+                        app:labelValueType="value"
+                        app:maxValue="-60"
+                        app:minValue="-140"
+                        app:progressHeight="15dp"
+                        app:textColor="#b90000"
+                        app:value="0" />
+
+                    <leo.me.la.labeledprogressbarlib.LabeledProgressBar
+                        android:id="@+id/pb_RSRQ"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:indeterminate="false"
+                        app:labelBackgroundColor="#f9f37e"
+                        app:labelText="giangp"
+                        app:labelValueType="value"
+                        app:maxValue="0"
+                        app:minValue="-30"
+                        app:progressHeight="15dp"
+                        app:textColor="#b90000"
+                        app:value="0" />
+
+                    <leo.me.la.labeledprogressbarlib.LabeledProgressBar
+                        android:id="@+id/pb_SNIR"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:indeterminate="false"
+                        app:labelBackgroundColor="#f9f37e"
+                        app:labelText="giangp"
+                        app:labelValueType="value"
+                        app:maxValue="30"
+                        app:minValue="-10"
+                        app:progressHeight="15dp"
+                        app:textColor="#b90000"
+                        app:value="0" />
+
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/no_internet_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@android:color/holo_red_dark"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:text="@string/no_internet_connection"
+                android:textColor="#ffffff"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+</layout>
